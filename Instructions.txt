@@ -1,0 +1,19 @@
+Question 1
+
+1)  Run "Create dbo.PersonCleansed Table.sql"
+2)  Run "dbo.RemoveSpecialChars.sql"
+3)  Run "dbo.PersonCleansed.sql"
+4)  Run "dbo.CleanUpPerson.sql"
+5)  Run "dbo.PatientMatching.sql"
+
+
+Testing scripts:
+
+EXECUTE dbo.PatientMatching @FirstName = 'Azra', @LastName = 'Magnus', @DOB = '1997-07-24 00:00:00.000', @Sex = 'Male';
+
+EXECUTE dbo.PatientMatching @FirstName = 'Azr', @LastName = 'Magnu', @DOB = '1997-07-24 00:00:00.000', @Sex = 'Male';
+
+
+Question 2
+
+1)  Run "Populate dbo.Dates.sql"
