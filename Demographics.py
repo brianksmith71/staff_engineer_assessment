@@ -60,12 +60,6 @@ df = pd.read_excel('C:\Privia Family Medicine 113018.xlsx', skiprows=3, names=['
 
 print(df.dtypes)
 
-for index, row in self.df.iterrows():
-    cursor.execute(
-        "INSERT INTO dbo.Demographics([ID], [ProviderGroup], [FileDate],[FirstName], [MiddleName], [LastName], [DOB], [Sex], [FavoriteColors]) values (?,?,?,?,?,?,?,?,?)",
-        row['ID'], self.providerGroup, self.fileDate, row['FirstName'], row['MiddleName'], row['LastName'], row['DOB'],
-        row['Sex'], row['FavoriteColor'])
-
 #list(df.itertuples(index=False, name=None))
 
 #df[[[4]]] = df[[[4]]].astype(str)
@@ -96,39 +90,29 @@ cursor.execute(delete_data)
 
 cursor.close()
 
-#connStr = pyodbc.connect('DRIVER={SQL Server};SERVER=localhost;DATABASE=PersonDatabase;Trusted_Connection=yes')
+connStr = pyodbc.connect('DRIVER={SQL Server};SERVER=localhost;DATABASE=PersonDatabase;Trusted_Connection=yes')
 cursor = connStr.cursor()
 
-# for index,row in df.iterrows():
-#     cursor.execute(
-#     "INSERT INTO dbo.Demographics ([Dummy], [PatientID], [FirstName], [MiddleName], [LastName], [DOB], [Sex], [FavoriteColor], [AttributedQ1],[AttributedQ2], [RiskQ1], [RiskQ2], [RiskIncreasedFlag]) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-#     row['Dummy'],
-#     row['PatientID'],
-#     row['FirstName'],
-#     row['MiddleName'],
-#     row['LastName'],
-#     row['DOB'],
-#     row['Sex'],
-#     row['FavoriteColor'],
-#     row['AttributedQ1'],
-#     row['AttributedQ2'],
-#     row['RiskQ1'],
-#     row['RiskQ2'],
-#     row['RiskIncreasedFlag'])
-#
-# cursor.commit()
+for index,row in df.iterrows():
+    cursor.execute(
+    "INSERT INTO dbo.Demographics ([Dummy], [PatientID], [FirstName], [MiddleName], [LastName], [DOB], [Sex], [FavoriteColor], [AttributedQ1],[AttributedQ2], [RiskQ1], [RiskQ2], [RiskIncreasedFlag]) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    row['Dummy'],
+    row['PatientID'],
+    row['FirstName'],
+    row['MiddleName'],
+    row['LastName'],
+    row['DOB'],
+    row['Sex'],
+    row['FavoriteColor'],
+    row['AttributedQ1'],
+    row['AttributedQ2'],
+    row['RiskQ1'],
+    row['RiskQ2'],
+    row['RiskIncreasedFlag'])
 
-
-
-
-
-
-
-
-
+cursor.commit()
 
     #list(df.itertuples(index=False, name=None))
-
 
 cursor.close()
 connStr.close()

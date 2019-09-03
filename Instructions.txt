@@ -1,3 +1,5 @@
+SQL Questions:
+
 Question 1
 
 1)  Run "Create dbo.PersonCleansed Table.sql"
@@ -17,3 +19,17 @@ EXECUTE dbo.PatientMatching @FirstName = 'Azr', @LastName = 'Magnu', @DOB = '199
 Question 2
 
 1)  Run "Populate dbo.Dates.sql"
+
+
+Question 3
+
+1) Run "dbo.ReturnPersonAttribution.sql"
+
+
+Python Questions:
+I ran out of time completing these questions.
+
+1)  The primary file is Demographics.py
+2)  I wanted to add command line arguments to pass in the file path
+3)  I need to alter dbo.Demographics.sql to change data types and add columns to accommodate DateOfFile, ProviderGroup
+4)  I did not get to Question 2
